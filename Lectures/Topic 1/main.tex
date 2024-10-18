@@ -1,0 +1,594 @@
+\documentclass[xcolor=svgnames,t]{beamer} 
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs, comment}
+\usepackage{graphicx}  % Add graphicx package
+\usepackage[absolute, overlay]{textpos} 
+\usepackage{pgfpages}
+\usepackage[font=footnotesize]{caption}
+\useoutertheme{infolines} 
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{colortbl}
+\definecolor{brownbrown}{RGB}{8, 8, 9}
+\usepackage[round, sort, authoryear]{natbib}
+\definecolor{brownred}{RGB}{198, 198, 198}
+
+\setbeamercolor{title in head/foot}{bg=brownred, fg=brownbrown}
+\setbeamercolor{author in head/foot}{bg=myuniversity}
+\setbeamertemplate{page number in head/foot}{}
+
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+
+\newtheorem{equi}{} %Creates a grey box when equi is called
+\setbeamertemplate{navigation symbols}{} 
+\usepackage{textpos}
+
+\usepackage{tikz}
+
+\usetheme{Madrid}
+\definecolor{myuniversity}{RGB}{48, 67, 180}
+\usecolortheme[named=myuniversity]{structure}
+\usepackage{tikz}
+
+\newcommand{\myitem}{\item[$\circ$]}
+\newcommand{\witem}{\item[\textcolor{white}{$\bullet$}]}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\AtBeginSection[]{
+\begin{frame}
+\frametitle{Content}
+\tableofcontents[currentsection]
+\end{frame}
+}
+
+\title[Synthetic Control Method]{Synthetic Control Method}
+\subtitle{}
+\titlegraphic{\includegraphics[height=1cm]{brown-logo.png}}
+\author[ECON 2400]{ECON 2400 \\ Applied Econometrics II}
+\institute[]{Andres Mena}
+\date{Spring 2024}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\logo{\includegraphics[height=0.5cm]{brown-arms.png}~%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Setting}
+\begin{frame}
+\frametitle{Comparative Case Study}
+\begin{itemize}
+    \item <1-> Originally proposed in \cite{abadie2003economic} and \cite{abadie2010synthetic} 
+    \item <2-> Studies an aggregate intervention on a large single unit (such as state, region, country) 
+    \item <3-> The aim is to estimate the effect of the intervention on some aggregate outcome of interest.
+    \item <4-> Comparative Case Studies: outcome of treated unit vs a group of units that are similar to the exposed.
+    \begin{itemize}
+        \myitem <5->\cite{card1990impact} compares the evolution of native unemployment in Miami at the
+        time of the boatlift to the average evolution of native unemployment in four other cities
+        in the United States.
+        \myitem <6->\cite{card1994american} use Pennsylvania as a comparison
+        to estimate the effects of an increase in the New Jersey minimum wage on employment in fast food restaurants in New Jersey
+    \end{itemize}
+    \item <7-> The synthetic control methodology formalizes the selection of the comparison units using a data driven procedure.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: German Reunification}
+\cite{abadie2015comparative} estimates the effect of the 1990 German reunification on per
+capita GDP in West Germany.
+\begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figures/germany.jpeg}
+        \label{fig:figure1}
+\end{figure}
+\begin{itemize}
+    \item <1-> For the average of donors, PTA of untreated outcomes fails.
+    \item <2-> SCM avoids manually picking comparison units.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Setting}
+Consider a complete panel with non-staggered binary treatment assignment.\\
+WLOG, assume the first unit is treated only in the last period.
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    & t=1 & t=2 & ... & t=$T_0$ & t=$T$ \\
+    \hline
+    j=1 & & & & & \cellcolor{lightgray}\\
+    \hline
+    j=2 &  & & & & \\
+    \hline
+    ... &  & & & & \\
+    \hline
+    j=$J$ &  & & & &\\
+    \hline
+    j=$J+1$ &  && & & \\
+    \hline
+   
+    \end{tabular}
+\end{table}
+
+
+
+\begin{itemize}
+    \item <1-> Donor Pool: $j=2,...,J+1$ units not affected by the intervention.
+    \item <2-> $T_0$ periods before the intervention.
+    \item <3-> Outcome of interest: $Y_{jt}$
+    \item  <4-> Predictors: For each $j$, we observe $k$ predictors of the outcome $X_{1j}$,...,$X_{kj}$. i)May include untreated $Y_{jt}$ ii) Not affected by the treatment.
+    
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Setting}
+\begin{itemize}
+    \item<1-> Potential Outcomes: $Y_{jt}(0)$ and $Y_{jt}(1)$
+    \item<2-> Parameter of Interest: $$\tau_{1T}=Y_{1T}(1)-Y_{1T}(0)$$
+    \item<3-> Fundamental problem of Causal Inference: $Y_{1T}(1)=Y_{1T}$ is observed but $Y_{1T}(0)$ is missing.
+    \item<4-> SCM: Proposes to estimate $\hat{Y}_{1T}(0)$ as a weighted average of the donors' outcome and compute: $$\hat{\tau}_{1T}=Y_{1T}-\hat{Y}_{1T}(0)$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{DiD vs. Synthetic Control Method (SCM)}
+    \begin{itemize}
+        \item<1-> \textbf{DiD (Difference-in-Differences)}: uses the simple average of untreated units (“donors”) as the control:
+        \begin{align*}
+        \hat{\tau}_{1T} &= Y_{1T} - \frac{1}{J} \sum_{j=2}^{J+1} Y_{jT} - \frac{1}{T_0} \sum_{t=1}^{T_0} \left( Y_{1t} - \frac{1}{J} \sum_{j=2}^{J+1} Y_{jt} \right) \\
+        &\equiv Y_{1T} - \hat{Y}^{\text{DiD}}_{1T}(0)
+        \end{align*}
+        
+        \item<2-> \textbf{Synthetic Control Method (SCM)}:
+        \begin{itemize}
+            \item<3-> What if we found a weighted average of donors that closely traced the pre-treatment path of \(Y_{1t}\): a “synthetic control” unit?
+            \item<4-> If the same relationship continues into \(t = T\), we can use
+            \[
+            \hat{Y}_{1T}(0) = \sum_{j=2}^{J+1} \omega_{jT} Y_{jT}
+            \]
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Estimation}    
+\begin{frame}
+    \frametitle{Estimations SCM}
+    \begin{itemize}
+        \item<1-> SC is defined as a weighted average of units in the donor pool. Formally:
+        \[
+        W = (\omega_2, \omega_3, \dots, \omega_{j+1})
+        \]
+        
+        \item<2-> Abadie et al. (2010) propose to choose weights so that the SCM minimizes the distance of pre-treatment predictors under the Euclidean norm for a given vector of positive constants \(V=[v_1, v_2, \dots, v_k]\):
+        \[
+            W^*(V) = \argmin_{\omega_2, \omega_3, \ldots, \omega_{J+1}}  \left( \sum_{h=1}^{k} v_h \left( X_{h1} - w_2 X_{h2} - \dots - w_{J+1} X_{hJ+1} \right)^2 \right)^{1/2}
+        \]
+        subject to:
+\[
+\omega_j \geq 0, \quad \sum_{j=2}^{J+1} \omega_j = 1
+\]
+ 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Estimations SCM}
+    \begin{itemize}
+        \item <1-> Predictors can contain some or all pre-treatment outcomes and a set of  covariates $Z_j$:
+        $$X_j=(Y_{j1},..., Y_{jT_0}, Z_j)$$
+        \item<1-> "Simplex constraints" ensure that the counterfactual is a convex combination of the donors (avoids extrapolation).
+        \item<2-> Also, it is a form of regularization:
+        \begin{itemize}
+            \item<3-> Prevents overfitting and improves prediction properties.
+            \item<4-> Typically produces a unique solution.
+            \item<5-> Ensures a sparse solution.
+        \end{itemize}
+        \item<6-> Sparsity makes the counterfactual more interpretable.
+        \item <7-> $W^*(V)$ is a function of some positive constants $V$ that indicates the relative importance of each predictor.
+        \witem <8-> \begin{center}
+            How do we choose $V$? 
+        \end{center}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Importance of Covariates}
+    How to pick weights on predictors, \(V\)?
+    \begin{itemize}
+        \item<1-> Simple strategy: \(v_h\) is the inverse of the variance of \(X_{h1}, \dots, X_{hJ+1}\).
+        \begin{itemize}
+            \item Rescales the rows of \(X\) to have unit variance.
+        \end{itemize}
+        \item<2-> \cite{abadie2010synthetic} propose to choose \(V\) to minimize the mean square prediction error of the SCM with respect to the pre-treatment outcome \(Y_{1t}(0)\) for \(t < T_0\).
+        \[
+        V^* = \arg\min_{V \in \mathbb{V}} \sum^{T_0}_{t=1} \left(Y_{1t} - \sum^{J+1}_{j=2} w^*_j(V) Y_{jt}\right)^2
+        \]
+        \item<3-> \cite{abadie2015comparative} proposes out-of-sample validation.
+        \begin{itemize}
+            \item<4-> We want to assess the relative importance of \(X_{11}, \dots, X_{k1}\) as predictors of \(Y_{1t}(0)\) for \(t > T_0\).
+            \item<5-> \(Y_{1t}(0)\) only observed for \(t \leq T_0\).
+            \item<6-> Assess predictive power of \(X\) on a subset of the pre-intervention data \(Y_{1t}(0)\).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Out of Sample validation of V}
+    \begin{itemize}
+        \myitem<1-> Split the pre-treatment period into two parts: Training period ($t<T_v$)and Validation period ($t \geq T_v$).
+        \myitem<2-> For every $V \in \mathbb{V}$, estimate the SCM $W^*(V)$ using the training period and compute the prediction error in the validation period.
+        \[\sum^{T_0}_{t=T_v}\Bigg(Y_{1t}-\sum^{J+1}_{j=2}w_j(V)Y_{jt}\Bigg)^2\]
+        \myitem<3-> Choose $V^*$ that minimizes the prediction error in the validation period.
+        \myitem<4-> In some cases $V^*$ may not be unique:
+        \begin{itemize}
+            \myitem<5->  Modify loss function to favor a dense set of weights
+        \end{itemize}
+        \[\sum^{T_0}_{t=T_v}\Bigg(Y_{1t}-\sum^{J+1}_{j=2}w_j(V)Y_{jt}\Bigg)^2 + \gamma V'V \]
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Considerations on \(V^*\)}
+    \begin{itemize} 
+        \item<1-> In practice, researchers should aim to demonstrate that results are robust to different choices of \(V\).
+        \item<2-> \(V^*\) is useful as long as it produces:
+        \[
+        Y_{it} \approx \sum_{j=2}^{J+1} w_j(V) Y_{jt} \quad \text{for } t \in [T_v, T_0]
+        \]\\
+        and\\
+        \[X_1 \approx X_0 W^*(V)\]
+        \item<3-> If the size $X_1 - X_0 W^*(V)$ is large, \cite{abadie2010synthetic} suggest that the SCM may not be reliable.
+        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{German Reunification Example (cont.)}
+    As predictors, use pre-treatment GDP and covariates (average for the 1981-1990 period).
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.99\textwidth]{Figures/balans.jpeg}
+        % No caption
+        \label{fig:figure2}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{German Reunification Example (cont.)}
+    The counterfactual for West Germany is given by a weighted average of Austria (0.42), Japan (0.16), the Netherlands (0.09), Switzerland (0.11), and the United States (0.22).
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figures/sparsity.jpeg}
+        % No caption
+        \label{fig:figure3}
+    \end{figure}
+\end{frame}
+
+\section{Context Requirements}
+\begin{frame}
+    \frametitle{Context requirements}
+    Context requirements for SCM:
+    \begin{itemize}
+        \item <1->  "Large" treatment effect: $\frac{|Y_{it}(1)-Y_{it}(0)|}{var(Y_{it}(0))}>C $ 
+        \begin{itemize}
+            \myitem  <2->  Outcome variables with substantial random noise elevate the risk of overfitting.
+            \myitem  <3-> Volatility of the outcome can be reduced by averaging over time or filtering. \citep{amjad2018robust} 
+        \end{itemize}
+        \item  <4->  "Nice" Donor Pool:
+        \begin{itemize}
+            \myitem <5-> Unaffected by the treatment
+            \myitem <6->  SUTVA/No spillovers. (Austria wasn't affected by the German reunification?)
+            \myitem <7-> Similar to the treated unit in terms of pre-treatment outcomes and covariates.
+            \myitem <8-> Not affected by "large" idiosyncratic shocks (e.g. natural disasters)
+        \end{itemize}
+        \item <9->  No anticipation:
+         \begin{itemize}
+            \myitem <10-> This can be solved by backdating the date of the intervention
+            
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Context requirements (cont)}
+   
+    \begin{itemize}
+        \item <1->  Convex Hull Condition
+        $$\sum_{h=1}^{k} v_h \left( X_{h1} - w_2 X_{h2} - \dots - w_{J+1} X_{hJ+1} \right) \approx 0$$
+        \begin{itemize}
+            \myitem <2->  Predictors of the treated unit should be well approximated by a convex combination of the predictors of the donors.
+            \myitem <3->  Less problematic if at least the outcome is well approximated (e.g. Inflation in West Germany)
+            \myitem <4->  If the outcome is not well approximated, consider taking first-differences (similar to cointegration)
+            
+        \end{itemize}
+        \item <5->  Pre-Intervention Data
+        \begin{itemize}
+            \myitem <6->  \cite{abadie2010synthetic} shows that bias is inversely proportional to the length of the pre-intervention period.
+            \myitem <7->  Structural breaks can be problematic.
+            \myitem <8->  Choosing $V$ to favour closer predictors can help.
+            
+        \end{itemize}
+    \end{itemize}
+    
+\end{frame}
+\section{Inference}
+\begin{frame}
+    \frametitle{Inference}
+    How to determine if the observed effects are statistically significant? (We have only two observations per year)
+    \begin{itemize}
+        \item<1-> \cite{abadie2010synthetic} propose an "\textit{exact p-value}" test (similar to Fisher's test).
+        \item<2-> \(H_0\): "\textit{no effect whatsoever}" \cite{firpo2018synthetic}.
+        $$ H_0: \quad Y_{jt}(1)=Y_{jt}(0) \quad \text{for each } j,t$$
+        \item<3-> Algorithm: For each $j$ in the donors' sample
+         \begin{itemize}
+            \myitem<4->  Iteratively compute SCM using all units $"-j"$ as donors (also $j=1$).
+            \myitem<5->  Compute the treatment effect $\hat{\tau}_{jT}$.
+            \myitem<6->  Compute the pre-period prediction error.
+            \[ RMSPE_j=\Bigg[\frac{1}{T_0}\sum^{T_0}_{t=1}\Bigg(Y_{jt}-\hat{Y}_{jt}(0)\Bigg)^2 \Bigg]^{1/2}\]
+            \myitem<7->  Compute the test statistic as the ratio: $r_j=\frac{\hat{\tau}_{jT}}{RMSPE_j}$
+         \end{itemize}
+       
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{German Reunification Example (cont.)}
+    \begin{itemize}
+        \item Reject $H_0$ if $p=\frac{1}{J+1}\sum_{J+1}^{j=1}\mathbf{1}\{r_j > r_1\}<c$, for some pre-specified $c$ (e.g. $c=0.05$).
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figures/inference.jpeg}
+        % No caption
+        \label{fig:figure4}
+    \end{figure}
+\end{frame}
+
+\section{Robustness}
+\begin{frame}
+    \frametitle{Robustness Check - Placebo Tests}
+    \begin{itemize}
+        \item<1-> Inference is realized using "Placebo interventions" with modified treated units.
+        \item<2-> Alternatively, use the same treated unit but with a different intervention date.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figures/placebo.jpeg}
+        % No caption
+        \label{fig:figure5}
+    \end{figure}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Robustness Check - Leave-One-Out}
+    \begin{itemize}
+        \item<1-> We may want to evaluate how sensitive are estimations to the set of controls  
+        \item<2-> Leave-one-out: Sequentially remove non-zero weights from the donor pool. 
+        \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.6\textwidth]{Figures/leaveone.jpeg}
+            % No caption
+            \label{fig:figure6}
+        \end{figure}
+    \end{itemize} 
+    
+    
+
+\end{frame}
+\begin{frame}
+    \frametitle{Robustness Check - Weighted Inference}
+    \begin{itemize}
+        \item<1-> Benchmark rejection rule on the p-value formula weights all units equally.  
+        \item<2-> We may want to evaluate how sensitive is inference to the equal-weights choices
+        \item <3-> \cite{firpo2018synthetic} propose to evaluate robustness by changing the weights using the parametric model:
+        $$p=\sum_{J+1}^{j=1}\frac{exp(\phi v_j)}{\sum^{J+1}_{j'=1}exp(\phi v_j')}\mathbf{1}\{r_j > r_1\}$$
+       
+    \end{itemize} 
+    
+    
+
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item $\phi$ is the sensitivity to heterogeneity in weights.
+        \item $\phi=0$ implies equal weights
+        \item If $p$ changes too abruptly with $\phi$, the inference is not robust.
+    \end{itemize}
+    \frametitle{Robustness Check - Weighted Inference}
+    \begin{figure}[htbp]
+            \centering
+            \includegraphics[width=0.6\textwidth]{Figures/firpo.jpeg}
+            % No caption
+            \label{fig:figure8}
+        \end{figure}
+    
+
+\end{frame}
+
+\section{Extensions}
+\begin{frame}
+    \frametitle{Factor Model}
+    \begin{itemize}
+        \item<1-> The SCM can be seen as a linear factor model.
+        $$Y_{jt}(0)=\delta_t+\lambda_t\mu_j+\theta_t Z_j+\epsilon_{jt} $$
+        \item <2-> In time series literature: $\lambda_t$ and  $\theta_t$ are the common factors, $Z_j$ 
+        and $\mu_j$ are the factor loadings. $\delta_t$ is a common factor with constant loadings
+        \item <3-> Diff-in-Diff: $\lambda_t=\lambda$. PTA implies $\delta_t+\theta_tz+\lambda\mu_j$ for all $j$ such that $Z_j=z$
+        \item <4-> $SCM$ relax PTA
+        \item <5-> The $SC$ is a weighted average of the donors' outcomes:
+        $$ \sum_{j=2}^{w_j} w_j Y_{jt}(0) = \delta_t + \theta_{t} \sum_{j=2}^{J+1}w_j Z_j + \lambda_{t} \sum^{J+1}_{j=2} w_j \mu_j + \sum_{j=2}^{J+1} w_j \epsilon_{jt}.
+        $$
+    \end{itemize}
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bias Bound}
+    \begin{itemize}
+        \item<1-> If the SCM is a good approximation of the factor model, we can use the factor model to bound the bias of the SCM.
+        \item<2-> \cite{abadie2010synthetic} shows that if $\sum_{j=2}^{J+1} w^*_j Y_{jt}(0)=Y_{1t}(0)$ and $\sum_{j=2}^{J+1} w^*_j Z_j= Z_1$ then:
+        $$ Bias_t =\sum_{j=2}^{J+1} w^*_j \sum^{T_0}_{s=1}\frac{(\lambda_s \lambda_t)(\epsilon_{js}-\epsilon_{1s})}{\sum^{T_0}_{n=1} \lambda^2_n} - \sum_{j=2}^{J+1} w^*_j(\epsilon_{jt}-\epsilon_{1t}) $$
+        \item <3-> As $T_0\rightarrow \infty$ we have that $Bias_t \rightarrow 0$
+        \item <4-> For short pre-treatment, the bias depends on the variability of idiosyncratic errors.
+        \item <5-> If $X_1-X_0W^*$ is significant, bias may be large even for  $T_0\rightarrow \infty$ 
+        \item <6-> For fixed $T_0$, the bias is increasing in $J$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Extensions: Multiple Treated Units}
+    \begin{itemize}
+        \item <1-> Conceptually equivalent to the single treated unit case.
+        \item <2-> Repeat the SCM for each treated unit and average the results.
+        \item <3-> However the optimal weights may not be unique and inference may be more challenging.
+        \begin{itemize}
+            \myitem <4-> \cite{abadie2021penalized} proposes solutions to these challenges. 
+            \myitem<5-> Multiple solutions: Penalized SCM (next)
+        \myitem <6-> Inference: Generalized permutation test. $I$ treated units reasigned among $I+J$ units and for each permutation $b=1,2,..,B$ the rank statistics $r_{b1},...,r_{bI}$ are computed. $t_b=sum^I_{i=1}r_{bi}$
+    $$p=\frac{1}{B+1} \sum^B_{b=2}\mathbf{1}\{t_b \geq t_1\} $$
+        \end{itemize}
+        
+    \item <7-> Alternativley, \cite{robbins2017framework} propose a single SC for all treated units.
+    \end{itemize}
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Extensions: Penalized SCM}
+    \begin{itemize}
+        \item<1-> In many cases, for multiple treated units, the predictors of some treated units may fall in the convex hull of the columns of $X_0$. $$X_1=X_0W^*$$
+        \item <2-> Typically, the number of solutions $W^*$ will be infinite.
+        \item <3-> Even if $X_1 \approx X_0W^*$, $X_j$ may lie far away of $X_1$ for some $j$ creating interpolation bias.
+        \item <4-> Penalized SCM: Add a penalty term $\lambda>0$ to the objective function to restrict the "quality" of donors:
+        $$||X_i-X_0 W ||^2 + \lambda \sum^{I+J}_{j=I+1} w_i || X_i -X_j ||^2 $$
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Extensions: Penalized SCM}
+    \begin{itemize}
+        \item<1-> The penalty term reduces interpolation bias
+        \item <2-> As $\lambda\rightarrow \infty$ SCM converges to Nearest-Neighbour Matching 
+        \item <3-> $0< \lambda < \infty$ implies a trade-off between aggregate fit vs pairwise fit.
+        \witem <4-> \only<4->{\begin{theorem}
+            \citep{abadie2021penalized} If $\lambda > 0$, $W_i^*(\lambda)$ is unique and sparse, with at most $p+1$ nonzero components.
+            \end{theorem}}
+            \witem<5->
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.35\textwidth]{Figures/penalized.jpeg}
+                % No caption
+               
+            \end{figure}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Extensions: Synthetic Diff-in-Diff}
+    \begin{itemize}
+        \item<1-> Traditional Diff-in-Diff puts equal weight on all pre-treatment periods and units, but if some periods/units are more useful in prediction, we could improve the estimation.
+        \item<2-> \cite{arkhangelsky2021synthetic} introduced an SCM that weights not only the units but also the pre-intervention time periods.
+        \item<3-> The time weights play a similar role as the predictor weights $V = (v_1, \dots, v_k)$, reflecting the importance of each time period on the prediction of the treated-unit outcome.
+        
+        \[
+        \hat{ATT} = \bar{Y}_{\text{treated, post}} - \sum_{i=1}^{N_0} \hat{w}_i \bar{Y}_{i, \text{post}} - \sum_{t=1}^{T_0} \hat{v}_t \Bigg(\bar{Y}_{\text{treated, } t} - \sum_{i=1}^{N_0} \hat{w}_i Y_{i, t}\Bigg)
+        \]
+        
+        \item<4-> Implemented TWFE weighted by $\hat{w}_i \cdot \hat{v}_t$ (with $\hat{v}_T = 1$ for $T > T+0$ and $w_i = 1$ for treated units).
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{SCM as Online Linear Regression }
+    \begin{itemize}
+        \item<1-> \cite{chen2023synthetic} recognizes that SCM is an online convex optimization algorithm known as Follow-the-leader. At each period $t$:
+        \begin{itemize}
+            \myitem An online player chooses a set of weights(e.g. $W_t=w_1,..,w_J$)
+            \myitem An adversarial chosses a loss function (e.g. $l_t=||X_i-X_0 W ||^2$)
+            \myitem The player suffers a loss $l_t(w_t)$ and the process restarts the next period.
+        \end{itemize}
+        \item <2-> The idea is that choosing an optimal set of weights would minimize the cumulative loss (Regret). The adversarial can choose any loss function and even the outcomes $X_i, X_0$
+        \only<3->{\begin{theorem}
+            With bounded outcomes $||Y||_{\infty}\leq 1$, the SCM satisfies a regret bound of:
+            $$Regret_T(Y)\leq 16N(log(\sqrt[root]{N}T)+1))=O(NlogT) $$
+            \end{theorem}}
+            \item <4-> This theorem shows that $SCM$ performs better or equal than any other weighted average of the donors (including Diff-in-Diff and Synthetic Diff-in-Diff)
+    \end{itemize}
+    
+
+\end{frame}
+
+
+
+\begin{frame} [allowframebreaks]\frametitle{References}
+               
+    \bibliographystyle{apalike}
+    \bibliography{biblio}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

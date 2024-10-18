@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Setting}{3}{0}{1}
+\beamer@sectionintoc {2}{Estimation}{25}{0}{2}
+\beamer@sectionintoc {3}{Context Requirements}{52}{0}{3}
+\beamer@sectionintoc {4}{Inference}{71}{0}{4}
+\beamer@sectionintoc {5}{Robustness}{80}{0}{5}
+\beamer@sectionintoc {6}{Extensions}{89}{0}{6}
