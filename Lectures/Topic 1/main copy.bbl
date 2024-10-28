@@ -1,0 +1,23 @@
+\begin{thebibliography}{}
+
+\bibitem[Abadie et~al., 2010]{abadie2010}
+Abadie, A., Diamond, A., and Hainmueller, J. (2010).
+\newblock Synthetic control methods for comparative case studies: Estimating the effect of california’s tobacco control program.
+\newblock {\em American Economic Review}, 105(3):391--425.
+
+\bibitem[Snow, 1854]{snow1854}
+Snow, J. (1854).
+\newblock {\em On the Mode of Communication of Cholera}.
+\newblock London: John Churchill.
+
+\bibitem[Thistlethwaite and Campbell, 1960]{thistlethwaite1960}
+Thistlethwaite, D.~L. and Campbell, D.~T. (1960).
+\newblock Regression-discontinuity analysis: An alternative to the ex post facto experiment.
+\newblock {\em Journal of Educational Psychology}, 51(6):309--317.
+
+\bibitem[Wright, 1928]{wright1928}
+Wright, P.~G. (1928).
+\newblock The tariff on animal and vegetable oils.
+\newblock {\em Quarterly Journal of Economics}, 43(4):599--607.
+
+\end{thebibliography}

@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{What is Causal Inference?}{3}{0}{1}
+\beamer@sectionintoc {2}{The Four Questions of Causal Inference}{31}{0}{2}
+\beamer@sectionintoc {3}{Probability Essentials}{32}{0}{3}
+\beamer@sectionintoc {4}{Treatment Effects definitions}{33}{0}{4}

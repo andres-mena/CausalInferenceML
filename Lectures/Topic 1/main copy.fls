@@ -2,8 +2,8 @@ PWD /Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 1
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 1/main.tex
-OUTPUT main.log
+INPUT /Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 1/main copy.tex
+OUTPUT main copy.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -267,7 +267,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamercolorthemedefaul
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonbook.pdf
-OUTPUT main.pdf
+OUTPUT main copy.pdf
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonbook.pdf
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonbook.20.pdf
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamericonbook.20.pdf
@@ -302,6 +302,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption-beamer.sto
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption-beamer.sto
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/cite/cite.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/colortbl/colortbl.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/colortbl/colortbl.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty
@@ -346,10 +348,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamercolorthemestruct
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/beamer/beamercolorthemestructure.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./main.aux
-INPUT ./main.aux
-INPUT main.aux
-OUTPUT main.aux
+INPUT ./main copy.aux
+INPUT ./main copy.aux
+INPUT main copy.aux
+OUTPUT main copy.aux
 INPUT /usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -358,13 +360,13 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT ./main.out
-INPUT ./main.out
-INPUT main.out
-INPUT main.out
-INPUT ./main.out
-INPUT ./main.out
-OUTPUT main.out
+INPUT ./main copy.out
+INPUT ./main copy.out
+INPUT main copy.out
+INPUT main copy.out
+INPUT ./main copy.out
+INPUT ./main copy.out
+OUTPUT main copy.out
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
@@ -383,20 +385,20 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-numbers
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
-INPUT ./main.nav
-INPUT ./main.nav
-INPUT main.nav
+INPUT ./main copy.nav
+INPUT ./main copy.nav
+INPUT main copy.nav
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
+INPUT ./main copy.toc
+INPUT ./main copy.toc
+INPUT main copy.toc
+INPUT ./main copy.toc
+INPUT ./main copy.toc
+INPUT main copy.toc
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
@@ -434,62 +436,32 @@ INPUT ./Figures/CI_tree.jpg
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi12.tfm
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
+INPUT ./main copy.toc
+INPUT ./main copy.toc
+INPUT main copy.toc
+INPUT ./main copy.toc
+INPUT ./main copy.toc
+INPUT main copy.toc
+INPUT ./main copy.toc
+INPUT ./main copy.toc
+INPUT main copy.toc
+INPUT ./main copy.bbl
+INPUT ./main copy.bbl
+INPUT main copy.bbl
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
-INPUT ./main.bbl
-INPUT ./main.bbl
-INPUT main.bbl
-OUTPUT main.nav
-OUTPUT main.toc
-OUTPUT main.snm
-INPUT main.aux
-INPUT ./main.out
-INPUT ./main.out
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+OUTPUT main copy.nav
+OUTPUT main copy.toc
+OUTPUT main copy.snm
+INPUT main copy.aux
+INPUT ./main copy.out
+INPUT ./main copy.out
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
