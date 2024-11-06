@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Origins of Randomized Experiments}{3}{0}{1}
+\beamer@sectionintoc {2}{Classification of Assignment Mechanisms}{21}{0}{2}
+\beamer@sectionintoc {3}{Types of Randomized Experiments}{32}{0}{3}
+\beamer@sectionintoc {4}{Inference 1: Fisher Exact P-Value}{53}{0}{4}
+\beamer@sectionintoc {5}{Inference 2: Neyman's ATE Test}{54}{0}{5}
+\beamer@sectionintoc {6}{Covariates and Heterogeneity}{55}{0}{6}
