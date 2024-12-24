@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1730252587.06948 "main.aux" "main.bbl" "main" 1730252950.39322 0
+["bibtex main"] 1731532083.12685 "main.aux" "main.bbl" "main" 1731532087.33111 0
   "./references.bib" 1729555026.45511 13109 2c75a1e305c17f111e9ad9b4adc87886 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1730252950.07533 7584 cebb8e6f8fc49bba5695cb185d9bc08f "pdflatex"
+  "main.aux" 1731532086.94468 10730 4938a343262b4b6bc78f93650ef69082 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1730252947.56195 "/Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 2/main.tex" "main.pdf" "main" 1730252950.39336 0
-  "/Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 2/main.tex" 1730252947.42874 17777 f675999b99735efefbc33ea369f6e493 ""
+["pdflatex"] 1731532083.29391 "/Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 2/main.tex" "main.pdf" "main" 1731532087.33131 0
+  "/Users/andres/Documents/GitHub/CausalInferenceML/Lectures/Topic 2/main.tex" 1731532078.82559 33297 ce495438e069d8eb675a0718f76d4b68 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -37,6 +37,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm" 1336178347 1676 fb6c6a335484692abff897d6e8965829 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1248133631 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
@@ -49,6 +50,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -243,12 +245,12 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1706128672.86195 4993097 9a4fc1f062d9d0f055c7bc5a5f93f223 ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1706128701 8211146 11b9a3dafdbab675600fe7b4f167579f ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main.aux" 1730252950.07533 7584 cebb8e6f8fc49bba5695cb185d9bc08f "pdflatex"
-  "main.bbl" 1730252587.17446 411 e0f402763fd3f0641e15692d1ba34641 "bibtex main"
-  "main.nav" 1730252950.07698 4816 39ed1a6281a6558d84c007b01ce2a16f "pdflatex"
-  "main.out" 1730252950.07667 1378 73e03cf793565428197f636e55aa0f90 "pdflatex"
-  "main.tex" 1730252947.42874 17777 f675999b99735efefbc33ea369f6e493 ""
-  "main.toc" 1730252950.07706 415 6494437bc2dbe186628e0fbc85ac1661 "pdflatex"
+  "main.aux" 1731532086.94468 10730 4938a343262b4b6bc78f93650ef69082 "pdflatex"
+  "main.bbl" 1731532083.28944 411 e0f402763fd3f0641e15692d1ba34641 "bibtex main"
+  "main.nav" 1731532086.94716 7034 5ab8c4da6e1bbb50c66588cf807b1c5a "pdflatex"
+  "main.out" 1731532086.94678 1562 13122a773c048d1edd60c6030e8e1e4b "pdflatex"
+  "main.tex" 1731532078.82559 33297 ce495438e069d8eb675a0718f76d4b68 ""
+  "main.toc" 1731532086.94724 479 6f1e07fa0fd969132871e19c3ff9bb93 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

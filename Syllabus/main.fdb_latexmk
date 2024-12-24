@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1729279294.0174 "/Users/andres/Documents/GitHub/CausalInferenceML/Syllabus/main.tex" "main.pdf" "main" 1729279294.63447 0
-  "/Users/andres/Documents/GitHub/CausalInferenceML/Syllabus/main.tex" 1729279293.20986 15767 6d33cad0f102df04278f64ceb9320b40 ""
+["pdflatex"] 1731528338.33265 "/Users/andres/Documents/GitHub/CausalInferenceML/Syllabus/main.tex" "main.pdf" "main" 1731528339.05461 0
+  "/Users/andres/Documents/GitHub/CausalInferenceML/Syllabus/main.tex" 1730941738.50251 15767 6d33cad0f102df04278f64ceb9320b40 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -62,9 +62,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1706128672.86195 4993097 9a4fc1f062d9d0f055c7bc5a5f93f223 ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1706128701 8211146 11b9a3dafdbab675600fe7b4f167579f ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main.aux" 1729279294.58522 162 8041607b76d73e3dcbdb7e912bad98fd "pdflatex"
-  "main.out" 1729279294.37833 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1729279293.20986 15767 6d33cad0f102df04278f64ceb9320b40 ""
+  "main.aux" 1731528338.9886 162 8041607b76d73e3dcbdb7e912bad98fd "pdflatex"
+  "main.out" 1731528338.76181 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1730941738.50251 15767 6d33cad0f102df04278f64ceb9320b40 ""
   (generated)
   "main.aux"
   "main.log"

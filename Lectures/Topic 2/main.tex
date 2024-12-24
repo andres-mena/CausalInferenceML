@@ -181,14 +181,49 @@
 
 
 \end{frame}
+\begin{frame}{Example: Propensity Score}
+\scriptsize
+   \[
+    \begin{array}{ll@{\hspace{2cm}}ll}
+    \text{1.} \quad D = (0, 0, 0, 0) & P(D = 1) = 0 & \text{9.} \quad D = (1, 0, 1, 0) & P(D = 9) = \frac{3}{16} \\
 
-% Slide 1: Individualistic Assignment Mechanism
-\begin{frame}{Individualistic Assignment Mechanism}
-    \textbf{Individualistic Assignment Mechanism:} In this mechanism, the probability of each unit's treatment assignment depends only on the unit's covariates and potential outcomes, independent of the assignments of other units.
+    \text{2.} \quad D = (1, 0, 0, 0) & P(D = 2) = \frac{3}{16} & \text{10.} \quad D = (1, 0, 0, 1) & P(D = 10) = \frac{2}{16} \\
+
+    \text{3.} \quad D = (0, 1, 0, 0) & P(D = 3) = \frac{2}{16} & \text{11.} \quad D = (0, 1, 0, 1) & P(D = 11) = \frac{2}{16} \\
+
+    \text{4.} \quad D = (0, 0, 1, 0) & P(D = 4) = 0 & \text{12.} \quad D = (1, 1, 1, 0) & P(D = 12) = 0 \\
+
+    \text{5.} \quad D = (0, 0, 0, 1) & P(D = 5) = 0 & \text{13.} \quad D = (1, 0, 1, 1) & P(D = 13) = 0 \\
+
+    \text{6.} \quad D = (1, 1, 0, 0) & P(D = 6) = \frac{1}{16} & \text{14.} \quad D = (0, 1, 1, 1) & P(D = 14) = 0 \\
+
+    \text{7.} \quad D = (0, 1, 1, 0) & P(D = 7) = \frac{2}{16} & \text{15.} \quad D = (1, 1, 0, 1) & P(D = 15) = 0 \\
+
+    \text{8.} \quad D = (0, 0, 1, 1) & P(D = 8) = \frac{1}{16} & \text{16.} \quad D = (1, 1, 1, 1) & P(D = 16) = 0 \\
+    \end{array}
+    \]
+\end{frame}
+\section{Restrictions to Assignments}
+\begin{frame}{Individualistic Assignment}
+    \textbf{Definition 3.4 (Individualistic Assignment):}For some function \( q( \cdot ) \in [0, 1] \):
     
     \[
-    \Pr(D_i | X, Y(0), Y(1)) = f(X_i, Y_i(0), Y_i(1))
+    p_i(X, Y(0), Y(1)) = q(X_i, Y_i(0), Y_i(1)), \quad \text{for all } i = 1, \ldots, N,
     \]
+
+    and
+
+    \[
+    \Pr(D | X, Y(0), Y(1)) = c \cdot \prod_{i=1}^N q(X_i, Y_i(0), Y_i(1))^{D_i} (1 - q(X_i, Y_i(0), Y_i(1)))^{1 - D_i},
+    \]
+    \pause
+\begin{itemize}
+    \item The constant \( c \) ensures that the probabilities sum to unity.
+    \pause
+    \textcolor{red}{\textbf{Homework:} Compute the value of \( c \) for a generic assignment mechanism with two units and a binary treatment.}
+
+   \end{itemize}
+    
     
    
 \end{frame}
@@ -211,7 +246,22 @@
     \[
     \Pr(D | X, Y(0), Y(1)) = \Pr(D | X)
     \]
+   
+    \pause
+    \begin{itemize}
+       
     
+        \item  Given individualistic assignment and unconfoundedness\[
+\Pr(D | X, Y(0), Y(1)) = c \cdot \prod_{i=1}^N q(X_i)^{D_i} \cdot (1 - q(X_i))^{1 - D_i} 
+\]
+
+so that
+
+\[
+e(x) = q(x)
+\]
+    \end{itemize}
+        
     
 \end{frame}
 
@@ -251,15 +301,15 @@
     For a Bernoulli trial, the probability of an assignment vector \( D \) for \( N \) units is given by:
     
     \[
-    \Pr(D | X, Y(0), Y(1)) = \prod_{i=1}^N \left( q^{D_i} \cdot (1 - q)^{1 - D_i} \right)
+    \Pr(D | X, Y(0), Y(1)) = \prod_{i=1}^N \left( e(X_i)^{D_i} \cdot (1 - e(X_i))^{1 - D_i} \right)
     \]
     
     where:
     \begin{itemize}
         \item \( D_i = 1 \) if unit \( i \) is assigned to treatment, \( D_i = 0 \) otherwise.
-        \item \( q \): Probability of treatment assignment.
+        \item \( e(X_i) \): Propensity Score for unit \( i \).
     \end{itemize}
-    If \( q = 0.5 \), then \( \Pr(D | X, Y(0), Y(1)) = 0.5^N \).
+    If \( e(X_i)= q = 0.5 \), then \( \Pr(D | X, Y(0), Y(1)) = 0.5^N \).
 \end{frame}
 
 
@@ -272,7 +322,6 @@
         \item Each unit's assignment is \text{NOT} independent of others, but the total number of treated units is fixed by design.
         \item The assignment mechanism is:
             \begin{itemize}
-                \item \textbf{Individualistic}: Each unit’s assignment depends only on its own characteristics.
                 \item \textbf{Probabilistic}: Each unit has a positive probability of being selected for treatment or control.
                 \item \textbf{Unconfounded}: Given covariates, assignment does not depend on potential outcomes.
                 \item \textbf{Controlled by the Researcher}: The number \( N_t \) of treated units is specified by the researcher.
@@ -371,24 +420,403 @@
 
 
 \section{Inference  1: Fisher Exact P-Value}
+% Slide 1: SUTVA Definition
+\begin{frame}{Stable Unit Treatment Value Assumption (SUTVA)}
+    \textbf{Assumption 1.1 (SUTVA):}
+    
+    \begin{itemize}
+        
+        \item For each unit, there are no different forms or versions of each treatment level that lead to different potential outcomes.\\
+        
+        \pause
+        \vspace{0.5cm}
+        \textbf{Example:}  Suppose a drug can be administered as a tablet or an injection. then SUTVA implies:
+
+    \[
+    Y_i(1_{\text{tablet}}) = Y_i(1_{\text{injection}})
+    \]
+        \pause
+        \item The potential outcomes for any unit do not vary with the treatments assigned to other units.
+        \pause
+        \[
+            Y(1)_i = Y(1,1)_i = Y(1,0)_i \quad \text{for } i = 1, 2
+            \]
+        
+    \end{itemize}
+
+    \vspace{0.5cm}
+    \textbf{Example:} Under SUTVA, the potential outcomes for two units (1 and 2) would be consistent regardless of others' treatment status:
+    
+  
+    
+    \vspace{1cm} % Space for notes or additional explanations
+\end{frame}
+
+\begin{frame}{Fisher’s Exact P-Value}
+    \begin{itemize}
+        \item \textbf{Context} Inference under \textbf{physical randomization} for assessing causal effects.
+        \pause
+        \item \textbf{Sharp Null Hypothesis:} Fisher focused on testing the \emph{sharp null hypothesis} $$H0: Y_i(1) = Y_i(0) \quad \text{for all units } i = 1, \ldots, N. $$
+        \pause
+        \item \textbf{Exact p-Values:} The probability, under the $H0$, of observing a test statistic as extreme or more extreme than the one actually observed.
+        \pause
+        \item \textbf{Nonparametric Approach:} This method makes no assumptions about the distribution of the test statistic under the null hypothesis.(as t-test or ANOVA)
+        \pause
+        \item \textbf{Flexibility} Both $H0$ and test statistic can be defined in various ways, making the method widely applicable.
+    \end{itemize}
+\end{frame}
+
+% Corrected Frame with Table
+\begin{frame}{Table 5.3: Cough Frequency for the First Six Units from the Honey Study}
+    \begin{table}[]
+        \centering
+        \begin{tabular}{@{}cccccc@{}} % Changed to 'cccccc' for six columns
+            \toprule
+            \textbf{Unit} & \multicolumn{2}{c}{\textbf{Potential Outcomes}} & \multicolumn{3}{c}{\textbf{Observed Variables}} \\ 
+            % Total columns: 1 + 2 + 3 = 6
+            & \textbf{\( Y_i(0) \)} & \textbf{\( Y_i(1) \)} & \textbf{\( D_i \)} & \textbf{\( X_i \)} & \textbf{\( Y_{\text{obs}} \)} \\ \midrule
+            % The empty '&' at the start accounts for the first column under 'Unit'
+            1 &  & 3 & 1 & 4 & 3 \\
+            2 &  & 5 & 1 & 6 & 5 \\
+            3 &  & 0 & 1 & 4 & 0 \\
+            4 & 4 &  & 0 & 4 & 4 \\
+            5 & 0 &  & 0 & 1 & 0 \\
+            6 & 1 &  & 0 & 5 & 1 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% Frame with Steps for the Exact Test
+\begin{frame}{Steps for the Exact Test}
+    \begin{enumerate}
+        \item Define \( H_0 \), e.g., \( Y(1) = Y(0) \).
+        \pause
+        \item Define the test statistic, calculating the difference in average outcomes by treatment status:
+            \[
+            T_{\text{diff}} = \Bigg|\left( \frac{\sum_{i: D_i=1} Y_{\text{obs}, i}}{N_t} \right) - \left( \frac{\sum_{i: D_i=0} Y_{\text{obs}, i}}{N_c} \right)\Bigg|
+            \]
+        \pause
+        \item Compute the observed \( T_{\text{diff, obs}} \) from the data.
+        \pause
+        \item Compute \( T_{\text{diff}, k} \) for all possible assignment vectors \( D_k\).
+        \pause
+        \item Compute the p-value: approximate the p-value by the fraction of these \( K \) statistics that are as extreme as, or more extreme than, the observed \( T_{\text{diff, obs}} \):
+            \[
+            p = \frac{1}{K} \sum_{k=1}^K 1\left\{ T_{\text{diff}, k} \geq T_{\text{diff, obs}} \right\}
+            \]
+        \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Homework: Fisher Exact P-Value}
+    \begin{enumerate}
+        \item Take the class and compute the Fisher Exact P-Value as before.
+        \item Modify the test statistic and compute the rank statistic instead. Compare results
+        \item Modify the null hypothesis and test the null hypothesis that the unit treatment effect is 10\% Compare results
+        \item Compute Fisher Exact P-value using covariates (pp78 CIS)
+    \end{enumerate}
+\end{frame}
 \section{Inference  2: Neyman's ATE Test}
+\begin{frame}{Definition of Average Treatment Effect (ATE)}
+    The \textbf{Average Treatment Effect (ATE)} is defined as:
+    \[
+    \tau_{fs} = \frac{1}{N} \sum_{i=1}^{N} \left[ Y_i(1) - Y_i(0) \right] = \overline{Y}(1) - \overline{Y}(0),
+    \]
+    where:
+    \[
+    \overline{Y}(1) = \frac{1}{N} \sum_{i=1}^{N} Y_i(1), \quad \overline{Y}(0) = \frac{1}{N} \sum_{i=1}^{N} Y_i(0).
+    \]
+    
+    \vspace{2cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Definition of $\hat{\tau}_{\text{diff}}$}
+    Define the estimator $\hat{\tau}_{\text{diff}}$ as the difference of the sample means:
+    \[
+    \hat{\tau}_{\text{diff}} = \overline{Y}_{\text{obs}, t} - \overline{Y}_{\text{obs}, c},
+    \]
+    where:
+    \[
+    \overline{Y}_{\text{obs}, t} = \frac{1}{N_t} \sum_{i: W_i=1} Y^{\text{obs}}_i, \quad \overline{Y}_{\text{obs}, c} = \frac{1}{N_c} \sum_{i: W_i=0} Y^{\text{obs}}_i.
+    \]
+    
+    \vspace{2cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Theorem: Unbiasedness of $\hat{\tau}_{\text{diff}}$}
+    \textbf{Theorem}: The estimator $\hat{\tau}_{\text{diff}}$ is an unbiased estimator of the average treatment effect $\tau_{fs}$.
+    
+    \vspace{0.5cm} % Small space before proof
+    
+    \textbf{Proof}:
+    
+    \vspace{4cm} % Space for your proof
+    
+    \end{frame}
+    
+    \begin{frame}{Definition of Sampling Variance of the Neyman Estimator}
+    The sampling variance of $\hat{\tau}_{\text{diff}}$ is:
+    \[
+    V_W\left( \hat{\tau}_{\text{diff}} \right) = \frac{S_c^2}{N_c} + \frac{S_t^2}{N_t} - \frac{S_{tc}^2}{N},
+    \]
+    where:
+    \[
+    S_c^2 = \frac{1}{N - 1} \sum_{i=1}^{N} \left( Y_i(0) - \overline{Y}(0) \right)^2,
+    \]
+    \[
+    S_t^2 = \frac{1}{N - 1} \sum_{i=1}^{N} \left( Y_i(1) - \overline{Y}(1) \right)^2,
+    \]
+    \[
+    S_{tc}^2 = \frac{1}{N - 1} \sum_{i=1}^{N} \left( [Y_i(1) - Y_i(0)] - \tau_{fs} \right)^2.
+    \]
+    
+    \vspace{1.5cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Theorem 6.2}
+    \textbf{Theorem 6.2}: The sampling variance of $\hat{\tau}_{\text{diff}}$ is given by:
+    \[
+    V_W\left( \hat{\tau}_{\text{diff}} \right) = \frac{S_c^2}{N_c} + \frac{S_t^2}{N_t} - \frac{S_{tc}^2}{N}.
+    \]
+    
+    \vspace{0.5cm} % Small space before proof
+    
+    \textbf{Intuition}:
+    
+    \vspace{4cm} % Space for your proof
+    
+    \end{frame}
+    
+    \begin{frame}{Theorem 6.3}
+    \textbf{Theorem 6.3}: If the treatment effect $Y_i(1) - Y_i(0)$ is constant across units, then an unbiased estimator for the sampling variance is:
+    \[
+    \hat{V}_{\text{Neyman}} = \frac{\hat{s}_c^2}{N_c} + \frac{\hat{s}_t^2}{N_t},
+    \]
+    where $s_c^2$ and $s_t^2$ are sample variances calculated from the observed data.
+    
+    \vspace{0.5cm} % Small space before proof
+    
+    \textbf{Estimation}:
+    
+    \vspace{4cm} % Space for your proof
+    
+    \end{frame}
+    
+    \begin{frame}{Confidence Intervals}
+    To construct a $(1 - \alpha) \times 100\%$ confidence interval for $\tau_{fs}$, we use:
+    \[
+    \text{CI}_{1 - \alpha}(\tau_{fs}) = \left[ \hat{\tau}_{\text{diff}} + z_{\alpha/2} \sqrt{\hat{V}}, \quad \hat{\tau}_{\text{diff}} + z_{1 - \alpha/2} \sqrt{\hat{V}} \right],
+    \]
+    where $z_{\alpha/2}$ is the $\alpha/2$ quantile of the standard normal distribution.
+    
+    \vspace{2cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Testing}
+    To test the null hypothesis $H_0: \tau_{fs} = 0$ against the alternative $H_a: \tau_{fs} \ne 0$, we compute the test statistic:
+    \[
+    t = \frac{\hat{\tau}_{\text{diff}}}{\sqrt{\hat{V}}}.
+    \]
+    We compare $t$ to the critical values from the standard normal distribution.
+    
+    \vspace{2cm} % Space for your notes
+    
+    \end{frame}
+
+
+
+
+
+
 \section{Covariates and Heterogeneity}
 
-\begin{frame}
-    \frametitle{Bernoulli Trials}
-\end{frame}
-% Frame: Completely Randomized Experiment   
-\begin{frame}
-    \frametitle{Completely Randomized Experiment}
-\end{frame}    
+\begin{frame}{Classical Additive Approach: Improving Precision Under Linearity}
+    We start with the assumption that the conditional expectation function is exactly linear:
+    \[
+    \mathbb{E}[Y \mid D, W] = D\alpha + \beta^\top X,
+    \]
+    where:
+    \begin{itemize}
+        \item $D$ is the treatment indicator.
+        \item $W$ represents pre-treatment covariates.
+        \item $X = (1, W^\top)^\top$ includes an intercept and $W$.
+    \end{itemize}
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Centered Covariates and Covariate Balance}
+    We assume that the covariates are centered:
+    \[
+    \mathbb{E}[W] = 0.
+    \]
+    By the assumption of covariate balance in randomized experiments:
+    \[
+    \mathbb{E}[W \mid D = 1] = \mathbb{E}[W \mid D = 0].
+    \]
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Average Treatment Effect under Linearity}
+    Using centered covariates, we have:
+    \[
+    \begin{aligned}
+    \mathbb{E}[Y(0)] &= \mathbb{E}\left[ \mathbb{E}[Y \mid D=0, X] \right] = \beta_1, \\
+    \mathbb{E}[Y(1)] &= \mathbb{E}\left[ \mathbb{E}[Y \mid D=1, X] \right] = \beta_1 + \alpha.
+    \end{aligned}
+    \]
+    Therefore, the Average Treatment Effect (ATE) is:
+    \[
+    \delta = \mathbb{E}[Y(1)] - \mathbb{E}[Y(0)] = \alpha.
+    \]
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Statistical Inference on the ATE}
+    Even without assuming linearity, the projection coefficient $\alpha$ recovers the ATE $\delta$.
+    
+    Under regularity conditions, the Ordinary Least Squares (OLS) estimators satisfy:
+    \[
+    \sqrt{n}
+    \begin{pmatrix}
+    \hat{\alpha} - \alpha \\
+    \hat{\beta}_1 - \beta_1
+    \end{pmatrix}
+    \overset{approx}{\sim}
+    \mathcal{N}\left( 0, V \right),
+    \]
+    where the covariance matrix $V$ has components:
+    \[
+    \begin{aligned}
+    V_{11} &= \frac{\mathbb{E}[\epsilon^2 \tilde{D}^2]}{\left( \mathbb{E}[\tilde{D}^2] \right)^2}, \\
+    V_{22} &= \frac{\mathbb{E}[\epsilon^2 \tilde{1}^2]}{\left( \mathbb{E}[\tilde{1}^2] \right)^2}, \\
+    V_{12} &= V_{21} = \frac{\mathbb{E}[\epsilon^2 \tilde{D} \tilde{1}]}{\mathbb{E}[\tilde{D}^2] \mathbb{E}[\tilde{1}^2]},
+    \end{aligned}
+    \]
+    with:
+    \begin{itemize}
+        \item $\epsilon = Y - D\alpha - \beta^\top X$, where $\epsilon$ is uncorrelated with $D$ and $X$.
+        \item $\tilde{D}$ is the residual of $D$ after partialling out $X$.
+        \item $\tilde{1} = (1 - D)$ is the residual of 1 after partialling out $D$ and $W$.
+    \end{itemize}
+    
+    \vspace{0.5cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Relative Average Treatment Effect}
+    We can also perform inference on the Relative ATE $\alpha / \beta_1$.
+    
+    Using the Delta Method, we have:
+    \[
+    \sqrt{n} \left( \frac{\hat{\alpha}}{\hat{\beta}_1} - \frac{\alpha}{\beta_1} \right) \overset{approx}{\sim} \mathcal{N}\left( 0, G^\top V G \right),
+    \]
+    where:
+    \[
+    G = \begin{pmatrix}
+    1 / \beta_1 \\
+    - \alpha / \beta_1^2
+    \end{pmatrix}.
+    \]
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Improvement in Precision Under Linearity}
+    When we do not include covariates, the OLS estimator $\bar{\alpha}$ estimates $\alpha$ in:
+    \[
+    Y = \alpha D + \beta_1 + U, \quad \mathbb{E}[U] = \mathbb{E}[U D] = 0,
+    \]
+    where:
+    \[
+    U = \beta^\top (X - \mathbb{E}[X]) + \epsilon.
+    \]
+    Under the linear model, including covariates improves precision:
+    \[
+    V_{11} \leq \bar{V}_{11},
+    \]
+    where $\bar{V}_{11}$ is the variance when covariates are omitted.
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Limitations Without Linearity}
+    Without the linearity assumption, the improvement in precision is not guaranteed.
+    
+    \begin{itemize}
+        \item The variance $V_{11}$ and $\bar{V}_{11}$ are not generally comparable.
+        \item Including covariates may increase the standard errors if the linear model is misspecified.
+    \end{itemize}
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{The Interactive Approach: Capturing Heterogeneity}
+    Consider the interactive linear model:
+    \[
+    \mathbb{E}[Y \mid D, W] = \alpha^\top X D + \beta^\top X.
+    \]
+    Here, the Conditional Average Treatment Effect (CATE) is:
+    \[
+    \delta(W) = \mathbb{E}[Y(1) \mid W] - \mathbb{E}[Y(0) \mid W] = \alpha^\top X.
+    \]
+    The Average Treatment Effect (ATE) is:
+    \[
+    \delta = \mathbb{E}[\delta(W)] = \alpha_1,
+    \]
+    where $\alpha_1$ is the first component of $\alpha$.
+    
+    \vspace{0.5cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Estimation and Inference with Interactions}
+    The coefficient $\alpha$ is estimated from the linear projection:
+    \[
+    Y = \alpha^\top (D X) + \beta^\top X + \epsilon, \quad \epsilon \perp (X, D X).
+    \]
+    We can treat $D X$ as a vector of technical treatments and apply standard inference methods.
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Advantages of the Interactive Approach}
+    \begin{itemize}
+        \item Always delivers improvements in precision for estimating the ATE $\delta$, even if the linearity assumption does not hold.
+        \item Allows for the discovery of treatment effect heterogeneity.
+    \end{itemize}
+    
+    This result was demonstrated by Lin (2013).
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
+    
+    \begin{frame}{Conclusion}
+    \begin{itemize}
+        \item Including pre-treatment covariates can improve the precision of ATE estimates in RCTs.
+        \item The classical additive approach relies on linearity and may not always improve precision.
+        \item The interactive approach, which includes interactions between treatment and covariates, always improves precision and uncovers heterogeneity.
+    \end{itemize}
+    
+    \vspace{1cm} % Space for your notes
+    
+    \end{frame}
 
-\begin{frame}
-    \frametitle{Stratified Randomized Experiment}
-\end{frame}   
-
-\begin{frame}
-    \frametitle{Pair Randomized Experiment}
-\end{frame} 
     
 \begin{frame} [allowframebreaks]
     \frametitle{References}

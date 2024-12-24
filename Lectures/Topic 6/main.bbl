@@ -1,0 +1,53 @@
+\begin{thebibliography}{}
+
+\bibitem[Bertrand et~al., 2004]{bertrand2004much}
+Bertrand, M., Duflo, E., and Mullainathan, S. (2004).
+\newblock How much should we trust differences-in-differences estimates?
+\newblock {\em The Quarterly journal of economics}, 119(1):249--275.
+
+\bibitem[Borusyak et~al., 2021]{borusyak2021revisiting}
+Borusyak, K., Jaravel, X., and Spiess, J. (2021).
+\newblock Revisiting event study designs: Robust and efficient estimation.
+\newblock {\em arXiv preprint arXiv:2108.12419}.
+
+\bibitem[Callaway and Sant’Anna, 2021]{callaway2021difference}
+Callaway, B. and Sant’Anna, P.~H. (2021).
+\newblock Difference-in-differences with multiple time periods.
+\newblock {\em Journal of econometrics}, 225(2):200--230.
+
+\bibitem[De~Chaisemartin and d’Haultfoeuille, 2020]{de2020two}
+De~Chaisemartin, C. and d’Haultfoeuille, X. (2020).
+\newblock Two-way fixed effects estimators with heterogeneous treatment effects.
+\newblock {\em American Economic Review}, 110(9):2964--2996.
+
+\bibitem[Gardner, 2022]{gardner2022two}
+Gardner, J. (2022).
+\newblock Two-stage differences in differences.
+\newblock {\em arXiv preprint arXiv:2207.05943}.
+
+\bibitem[Goldsmith-Pinkham et~al., 2022]{goldsmith2022contamination}
+Goldsmith-Pinkham, P., Hull, P., and Koles{\'a}r, M. (2022).
+\newblock Contamination bias in linear regressions.
+\newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[Goodman-Bacon, 2021]{goodman2021difference}
+Goodman-Bacon, A. (2021).
+\newblock Difference-in-differences with variation in treatment timing.
+\newblock {\em Journal of Econometrics}, 225(2):254--277.
+
+\bibitem[Jakiela, 2021]{jakiela2021simple}
+Jakiela, P. (2021).
+\newblock Simple diagnostics for two-way fixed effects.
+\newblock {\em arXiv preprint arXiv:2103.13229}.
+
+\bibitem[Roth, 2022]{roth2022pretest}
+Roth, J. (2022).
+\newblock Pretest with caution: Event-study estimates after testing for parallel trends.
+\newblock {\em American Economic Review: Insights}, 4(3):305--22.
+
+\bibitem[Sun and Abraham, 2021]{sun2021estimating}
+Sun, L. and Abraham, S. (2021).
+\newblock Estimating dynamic treatment effects in event studies with heterogeneous treatment effects.
+\newblock {\em Journal of Econometrics}, 225(2):175--199.
+
+\end{thebibliography}

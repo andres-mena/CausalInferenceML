@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Conditional Expectation Function}{3}{0}{1}
+\beamer@sectionintoc {2}{Regression Properties}{15}{0}{2}
+\beamer@sectionintoc {3}{Causal Regression}{34}{0}{3}
+\beamer@sectionintoc {4}{Inference in Regression}{49}{0}{4}

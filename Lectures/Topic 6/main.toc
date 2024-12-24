@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Staggered adoption: setting and estimands}{3}{0}{1}
+\beamer@sectionintoc {2}{Two-Way Fixed Effects Estimation}{16}{0}{2}
+\beamer@sectionintoc {3}{Negative weights mechanics}{34}{0}{3}
+\beamer@sectionintoc {4}{Forbidden comparison}{47}{0}{4}
+\beamer@sectionintoc {5}{Diagnosis}{66}{0}{5}
+\beamer@sectionintoc {6}{Solutions}{82}{0}{6}

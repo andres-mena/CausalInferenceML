@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Identifications of Causal Effects under Unconfoundedness}{2}{0}{1}
+\beamer@sectionintoc {2}{Estimations Using Linear Regression}{9}{0}{2}
+\beamer@sectionintoc {3}{Inverse Probability Weighting}{33}{0}{3}
+\beamer@sectionintoc {4}{Doubly Robust Estimation}{39}{0}{4}
+\beamer@sectionintoc {5}{Neyman Orthogonality}{45}{0}{5}
+\beamer@sectionintoc {6}{Generic DML}{58}{0}{6}

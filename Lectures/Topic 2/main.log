@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.24)  29 OCT 2024 21:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.24)  13 NOV 2024 16:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -925,13 +925,28 @@ Overfull \vbox (10.9912pt too high) detected at line 160
 
 ] [29
 
-] [30
+] (./main.toc) [30
 
-] [31
+]
+Overfull \hbox (16.3062pt too wide) detected at line 229
+[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 D\OMS/cmsy/m/n/10.95 j\OT1/mathkerncmss/m/sl/10.95 X\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y\OT1/cmss/m/n/10.95 (1)) = \OT1/mathkerncmss/m/sl/10.95 c \OMS/cmsy/m/n/10.95 ^^A [] \OT1/mathkerncmss/m/sl/10.95 q\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X[]\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (1))[](1 \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X[]\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (1)))[]\OML/cmm/m/it/10.95 ;
+ []
 
-] (./main.toc) [32
+[31
 
-] [33
+]
+Overfull \hbox (16.3062pt too wide) detected at line 229
+[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 D\OMS/cmsy/m/n/10.95 j\OT1/mathkerncmss/m/sl/10.95 X\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y\OT1/cmss/m/n/10.95 (1)) = \OT1/mathkerncmss/m/sl/10.95 c \OMS/cmsy/m/n/10.95 ^^A [] \OT1/mathkerncmss/m/sl/10.95 q\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X[]\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (1))[](1 \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X[]\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (1)))[]\OML/cmm/m/it/10.95 ;
+ []
+
+[32
+
+]
+Overfull \hbox (16.3062pt too wide) detected at line 229
+[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 D\OMS/cmsy/m/n/10.95 j\OT1/mathkerncmss/m/sl/10.95 X\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y\OT1/cmss/m/n/10.95 (1)) = \OT1/mathkerncmss/m/sl/10.95 c \OMS/cmsy/m/n/10.95 ^^A [] \OT1/mathkerncmss/m/sl/10.95 q\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X[]\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (1))[](1 \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X[]\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (0)\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 Y[]\OT1/cmss/m/n/10.95 (1)))[]\OML/cmm/m/it/10.95 ;
+ []
+
+[33
 
 ] [34
 
@@ -939,7 +954,7 @@ Overfull \vbox (10.9912pt too high) detected at line 160
 
 ] [36
 
-] [37
+] (./main.toc) [37
 
 ] [38
 
@@ -971,26 +986,118 @@ Overfull \vbox (10.9912pt too high) detected at line 160
 
 ] [52
 
-] (./main.toc) [53
+] [53
 
-] (./main.toc) [54
+] [54
 
-] (./main.toc) [55
+] [55
 
 ] [56
 
 ] [57
 
-] [58
+] (./main.toc) [58
 
-] [59
+]
+Overfull \vbox (25.45459pt too high) detected at line 453
+ []
+
+[59
+
+]
+Overfull \vbox (25.45459pt too high) detected at line 453
+ []
+
+[60
+
+]
+Overfull \vbox (25.45459pt too high) detected at line 453
+ []
+
+[61
+
+]
+Overfull \vbox (25.45459pt too high) detected at line 453
+ []
+
+[62
+
+] [63
+
+] [64
+
+] [65
+
+] [66
+
+] [67
+
+] [68
+
+] [69
+
+] [70
+
+] [71
+
+] [72
+
+] [73
+
+] [74
+
+] (./main.toc) [75
+
+] [76
+
+] [77
+
+] [78
+
+] [79
+
+] [80
+
+] [81
+
+] [82
+
+] [83
+
+] (./main.toc) [84
+
+] [85
+
+] [86
+
+] [87
+
+]
+Overfull \vbox (60.70767pt too high) detected at line 715
+ []
+
+[88
+
+] [89
+
+] [90
+
+] [91
+
+] [92
+
+] [93
+
+] [94
+
+] [95
 
 ] (./main.bbl
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\translate ' on input line 1.
 
-) [60
+) [96
 
 ]
 \tf@nav=\write7
@@ -1008,21 +1115,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 73E03CF793565428197F636E55AA0F90;1378.
+(rerunfilecheck)             Checksum: 13122A773C048D1EDD60C6030E8E1E4B;1562.
  ) 
 Here is how much of TeX's memory you used:
- 27595 strings out of 474228
- 546961 string characters out of 5746458
+ 27739 strings out of 474228
+ 548702 string characters out of 5746458
  1941975 words of memory out of 5000000
- 49155 multiletter control sequences out of 15000+600000
- 571808 words of font info for 85 fonts, out of 8000000 for 9000
+ 49224 multiletter control sequences out of 15000+600000
+ 572102 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,123p,474b,671s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (60 pages, 232206 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (96 pages, 308175 bytes).
 PDF statistics:
- 662 PDF objects out of 1000 (max. 8388607)
- 498 compressed objects within 5 object streams
- 130 named destinations out of 1000 (max. 500000)
- 255 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 952 PDF objects out of 1000 (max. 8388607)
+ 723 compressed objects within 8 object streams
+ 203 named destinations out of 1000 (max. 500000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 

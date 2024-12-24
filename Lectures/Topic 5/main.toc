@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{LASSO Regression and Its Properties}{2}{0}{1}
+\beamer@sectionintoc {2}{Double LASSO}{23}{0}{2}
+\beamer@sectionintoc {3}{Double Machine Learning in PLM}{60}{0}{3}
+\beamer@sectionintoc {4}{Generic DML}{82}{0}{4}
